@@ -160,3 +160,12 @@ int main() {
 * 智能指针为我们提供了更加方便管理内存的工具。
 * 即使使用智能指针，还是有内存泄漏的风险（例如前面`shared_ptr`的例子）。使用智能指针时应熟悉它们各自的功能以及局限性。
 * 实际使用时，要根据需要选择合适的智能指针。
+
+## 参考资料
+
+* https://blog.csdn.net/zone_programming/article/details/47000647
+* https://www.codeproject.com/Articles/541067/Cplusplus-Smart-Pointers
+* https://blog.csdn.net/weixin_45590473/article/details/113057545
+* http://c.biancheng.net/view/1478.html
+* https://docs.microsoft.com/zh-cn/cpp/cpp/smart-pointers-modern-cpp?view=msvc-170
+
