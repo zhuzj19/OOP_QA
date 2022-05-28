@@ -98,7 +98,7 @@ public:
 };
 
 int main() {
-	std::shared_ptr<B> sptrB = std::make_shared<B>();
+    std::shared_ptr<B> sptrB = std::make_shared<B>();
     std::shared_ptr<A> sptrA = std::make_shared<A>();
     sptrB->m_sptrA = sptrA;
     sptrA->m_sptrB = sptrB;
