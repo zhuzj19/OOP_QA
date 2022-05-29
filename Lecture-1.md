@@ -17,12 +17,12 @@ int main(int argc, char** argv)
 ```
 
 - Windows:
- - To compile：`g++ a.cpp -o a.exe`
- - To run：`a.exe 1 2`
+    - To compile：`g++ a.cpp -o a.exe`
+    - To run：`a.exe 1 2`
 - Ubuntu:
- - To compile: `g++ a.cpp -o a`
- - To run: `./a 1 2`
-	
+    - To compile: `g++ a.cpp -o a`
+    - To run: `./a 1 2`
+
 #### 2. Please list（列举）the potential advantages and disadvantages of obtaining arguments by file reading vs. by command-line argument.
 
 - Advantage of file reading:
@@ -30,14 +30,14 @@ int main(int argc, char** argv)
   - Files can be copied and modified easily.
   - Files can provide a larger size of arguments.
   - When reading large amounts of arguments(>= 10000), file reading is more convenient than command-line argument.
-  - Files can be saved, thus provide an easier way to analyse data. 
+  - Files can be saved, thus provide an easier way to analyze data. 
 - Disadvantage of file reading:
   - File IO is more complex and slower than command arguments with exceptions to handle.
   - Not easy to know argument amounts.
 - Advantage of command-line argument:
   - Makes the program easier to be called in command-line.
   - Makes the program callable in batch scripts for tasks like parameter sweeping (参数扫描, 以不同的参数运行同一个程序).
-- Diadvantage of command-line argument:
+- Disadvantage of command-line argument:
   - Unable to handle large number of arguments.
   - Takes efforts to parse data from `argc` and `argv`.
 
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 
 ## Translation（翻译）from source code（源代码）to binary executable（二进制可执行文件）
 
-#### 5.	Please explain how interpreters（解释器）and compilers（编译器）work. What are the typical programming languages (典型编程语言) for each of the two translation methods? Please list the advantages and disadvantages of interpreters vs. compilers.
+#### 5. Please explain how interpreters（解释器）and compilers（编译器）work. What are the typical programming languages (典型编程语言) for each of the two translation methods? Please list the advantages and disadvantages of interpreters vs. compilers.
 
 - Interpreters translate the code line-by-line while executing the program. So, in general, interpreters run programs slower than compilers. The most common examples of interpreted languages are Python and java.
 - Advantages: programs can be easily transplanted (移植) to other platforms (平台), because the execution of the program only relies on the interpreters.
@@ -64,7 +64,7 @@ int main(int argc, char** argv)
 - Advantages: faster than interpreters. The compiler can also perform code optimization during the compiling process.
 - Disadvantage: For different platforms, the source code needs to be recompiled (重新编译).
 
-#### 6.	The g++ compiler is universally used in both commercial and scientific research projects. So you are supposed to know how to use g++ to compile C++ source files into the binary file. State the basic usage (基本用法) on how to compile a source file. List useful compiling options (编译选项) as many as possible, and explain why and when do we need these options.
+#### 6. The g++ compiler is universally used in both commercial and scientific research projects. So you are supposed to know how to use g++ to compile C++ source files into the binary file. State the basic usage (基本用法) on how to compile a source file. List useful compiling options (编译选项) as many as possible, and explain why and when do we need these options.
 
 ```plain
 Usage: g++ [options] file...
@@ -120,7 +120,7 @@ Options:
 
 Options starting with `-g`, `-f`, `-m`, `-O`, `-W`, or `--param` are automatically passed to the various sub-processes invoked by `g++`. In order to pass other options on to these processes the `-W<letter>` options must be used.
 
-#### 7.	What is a C/C++ library (库)? On Linux, how do we build a library using the g++ compiler? How do we use an existing library with the g++ compiler? At what stage is a library loaded (载入)? Is it always during the linking stage (链接阶段)? Please explain the difference between static (静态) and dynamic (动态) libraries.
+#### 7. What is a C/C++ library (库)? On Linux, how do we build a library using the g++ compiler? How do we use an existing library with the g++ compiler? At what stage is a library loaded (载入)? Is it always during the linking stage (链接阶段)? Please explain the difference between static (静态) and dynamic (动态) libraries.
 
 * C/C++ libraries are modules of already-compiled objective code. By libraries, we could reuse functions/classes provided by others.
 * A library can be used by including the related header files and linking the library (`*.a` or `*.lib`). 
@@ -131,7 +131,7 @@ Options starting with `-g`, `-f`, `-m`, `-O`, `-W`, or `--param` are automatical
   g++ -c lib2.cpp -o lib2.o
   ar -rv lib.a lib1.o lib2.o
   ranlib lib.a
-  ``` 
+  ```
 * To link the static library `lib.a`, run:
   ```bash
   g++ main.o lib.a –o main.exe
@@ -142,7 +142,7 @@ Options starting with `-g`, `-f`, `-m`, `-O`, `-W`, or `--param` are automatical
 
 ## Multi-file project
 
-#### 8.	On Linux, assuming a project contains the files main.cpp, sum.cpp, product.cpp, and functions.h, please write the command(s) needed to compile them into test with g++.
+#### 8. On Linux, assuming a project contains the files main.cpp, sum.cpp, product.cpp, and functions.h, please write the command(s) needed to compile them into test with g++.
 
 ```bash
 g++ -c main.cpp -o main.o
@@ -151,7 +151,7 @@ g++ -c product.cpp -o product.o
 g++ main.o sum.o product.o -o test
 ```
 
-#### 9.	Please explain why multiple files are necessary for a project. What are the advantages of multi-file project compared with single-file project?
+#### 9. Please explain why multiple files are necessary for a project. What are the advantages of multi-file project compared with single-file project?
 
 - A large project often needs a lot of developers. It is error-prone for all the developers to modify a single file simultaneously.
 - For a large project, the compilation process usaully takes a long time. Using multi-file projects, we can compile only the modified file (using `makefile` to take care of the compilation process), whereas in a single-file project, even a slight change in the file will cause the whole program to be re-compiled, which is very time-consuming.
@@ -317,9 +317,9 @@ explain:
 	-t, --touch                                   Touch targets instead of remaking them.
 ```
 
-**19.	Please list as many useful advanced grammars (高级语法) of makefile as many as you can. If possible, explain the usage of these grammars. For example, it is convenient to automatically detect all the source files in a folder (自动检测文件夹下的所有文件) and automatically compile them all. How does makefile support this?**
+#### 19. Please list as many useful advanced grammars (高级语法) of makefile as many as you can. If possible, explain the usage of these grammars. For example, it is convenient to automatically detect all the source files in a folder (自动检测文件夹下的所有文件) and automatically compile them all. How does makefile support this?
 
-- Assume there are source files `a.cpp`, `b.cpp`, and `c.cpp` in the folder, along with the header file `func.h`, we can complie the program in the following way:
+- Assume there are source files `a.cpp`, `b.cpp`, and `c.cpp` in the folder, along with the header file `func.h`, we can compile the program in the following way:
     ```makefile
 	object=a.o b.o c.o
 	main: func.h
@@ -327,7 +327,7 @@ explain:
 	```
 	Using "`$`", we may define variables for batch processing.
 
-- Infact, we can make the above process more automaticlly using the following makefile (JACK OF ALL TRADES!):
+- In fact, we can make the above process more automatically using the following makefile (JACK OF ALL TRADES!):
 
 ```makefile
 cc = g++
@@ -343,7 +343,7 @@ $(prom): $(obj)
 	$(cc) $< -o $@ -std=c++2a -c -Wall
 ```
 
-Explanation: Using the shell command `find`, we can automaticlly detect all source files (`*.cpp` matches all the files with a `.cpp` extension, etc. the source file) and all header files (`*.h` matches all the files with a `.h` extension, etc. the header file). `prom` is the name of our wanted executable file, when we type `make` in the command line, the make program will automaticlly find all source files and header files to compile (create or update) our target (in this case, that is the `./main`)
+Explanation: Using the shell command `find`, we can automatically detect all source files (`*.cpp` matches all the files with a `.cpp` extension, etc. the source file) and all header files (`*.h` matches all the files with a `.h` extension, etc. the header file). `prom` is the name of our wanted executable file, when we type `make` in the command line, the make program will automatically find all source files and header files to compile (create or update) our target (in this case, that is the `./main`)
 
 - ".RECIPEPREFIX = >" can change all the tab into '>'.
 
